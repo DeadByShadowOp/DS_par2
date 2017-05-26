@@ -18,6 +18,7 @@ def InicioDeSesion ():
             elif User[3] == "administrador,":
                 menus.menuAdministrador()
             else:
+                print(User[4])
                 menus.menuAdministradorRestaurante(User[4])
             return False
         else:

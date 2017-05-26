@@ -57,3 +57,4 @@ def listarPlatillo(restaurante):
             print("La categoria es: ", k[5], "\n")
             print("Esta disponible: ", k[2], "\n")
             print("Es de tipo: ", k[3], "\n")
+            print("\n \n <--------------------------> \n\n")
