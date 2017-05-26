@@ -39,3 +39,5 @@ def menuAdministrador ():
         print("algo")
     else:
         login.cerrarSesion()
+
+def 
