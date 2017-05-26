@@ -1,4 +1,4 @@
-CI,nombre,userName,pass,rol,
-0924995426,Jonathan Quintana,000360,usuario,
-0924995427,Jonathan Quintana,000360,administrador,
-0924995428,Jonathan Quintana,000360,administrador de restaurante,
+CI,nombre,pass,rol,restaurante,
+0924995426,Jonathan Quintana,000360,usuario,no,
+0924995427,Jonathan Quintana,000360,administrador,no,
+0924995428,Jonathan Quintana,000360,administrador de restaurante,mi restaurante,

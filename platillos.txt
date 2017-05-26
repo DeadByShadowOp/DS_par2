@@ -1,0 +1,4 @@
+ID,NOMBRE,SERVIDO,TIPO,RESTAURANT,CATEGORIA,
+1,plato 1,si ,postre,coca cola,postre,
+2,plato 2,si ,entrada,celex,almuerzo,
+3,plato 3,no, ejecutivo,fen,a la carta,
