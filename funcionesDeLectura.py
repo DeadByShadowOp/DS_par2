@@ -1,11 +1,11 @@
-def leerArchivo(ruta,diccionario):
+def leerArchivo(ruta,diccionario,key):
     archivoUsuarios = open(ruta, "r")
     usuarios = dict()
     usuarios = diccionario
     claves = []
     linea2 = []
     linea3 = []
-    key1 = []
+    key1 = key
     linea = archivoUsuarios.readline()
     while linea != "":
         # creacion de una lista con valores de la linea
@@ -22,4 +22,4 @@ def leerArchivo(ruta,diccionario):
     # asignacion de valores al diccionario
     for i in range(len(linea3)):
         usuarios.setdefault(key1[i], linea3[i])
-    return usuarios
+    return usuarios,key1

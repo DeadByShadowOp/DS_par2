@@ -1,5 +1,6 @@
 import funcionesDeLectura
 usuarios = dict()
 usuarios = {}
-funcionesDeLectura.leerArchivo("usuarios.txt",usuarios)
+key = []
+funcionesDeLectura.leerArchivo("usuarios.txt",usuarios,key)
 
