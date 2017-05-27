@@ -1,8 +1,12 @@
 import platillos
 import usuarios
+import  re
+import usuarioLogeado
 diccionarioCategoria = dict()
 diccionarioCategoria = {}
 keyC = []
+
+
 def listarCategoria():
     tmp = dict()
     tmp = platillos.platillos
@@ -23,10 +27,10 @@ def listarCategoria():
 def transformarClave(op):
     return keyC[op-1]
 
-def listarPlatillos (tipo,categoria,restaurante):
+def mastrarPlatillos(logeado,categoria):
     I = 1
     listTmp = []
-    if tipo == "usuario":
+    if  logeado.rol == "usuario":
         for j,k in platillos.platillos.items():
             if k[5] == categoria:
                 print(I, ".- ", k[1])
@@ -34,21 +38,24 @@ def listarPlatillos (tipo,categoria,restaurante):
                 I = I + 1
     else:
         for j,k in platillos.platillos.items():
-            if (restaurante == k[4]):
+            if (logeado.restaurante == k[4]):
                 print(k[4])
     return listTmp
 
-def mostrarPlatillo(op,lisTmp):
+def mostrarPlatillo(logeado,id):
     for j, k in platillos.platillos.items():
-        if lisTmp[op-1] == k[1]:
-            print("Su seleccion es: ",k[1],"\n")
-            print("Esta disponible: ", k[2], "\n")
-            print("Es de tipo: ", k[3], "\n")
-            print("Lo encuentra en el restaurante: ", k[4], "\n")
-            print("La categoria es: ", k[5], "\n")
-            print("Los ingredientes son: ", k[6], "\n")
-            print("Imagenes: ", k[7], "\n")
-            print("Descripción: ", k[8], "\n")
+        if logeado.rol == "usuario":
+            if id == k[0]:
+                print("Su seleccion es: ", k[1], "\n")
+                print("Esta disponible: ", k[2], "\n")
+                print("Es de tipo: ", k[3], "\n")
+                print("Lo encuentra en el restaurante: ", k[4], "\n")
+                print("La categoria es: ", k[5], "\n")
+                print("Los ingredientes son: ", k[6], "\n")
+                print("Imagenes: ", k[7], "\n")
+                print("Descripción: ", k[8], "\n")
+
+
 
 def listarPlatillo(restaurante):
     for j, k in platillos.platillos.items():
@@ -58,3 +65,13 @@ def listarPlatillo(restaurante):
             print("Esta disponible: ", k[2], "\n")
             print("Es de tipo: ", k[3], "\n")
             print("\n \n <--------------------------> \n\n")
+
+
+def buscarPlato(nombre,pos):
+    op1 = ".*"+nombre+".*"
+    for j,k in platillos.platillos.items():
+        if re.search(op1, k[pos]):
+                print("Nombre: ", k[1], "\n")
+                print("Servido: ", k[2], "\n")
+                print("Tipo: ", k[3], "\n")
+                print("Restaurante: ", k[4], "\n")

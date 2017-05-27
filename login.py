@@ -1,9 +1,11 @@
 import usuarios
 import menus
 from contracts import contract
+import usuarioLogeado
 diccionarioUsuarios = dict()
 User = []
 diccionarioUsuarios = usuarios.usuarios
+logeado = usuarioLogeado.userLogin()
 
 
 def InicioDeSesion ():
@@ -13,12 +15,16 @@ def InicioDeSesion ():
         User = diccionarioUsuarios.get(usuario)
         if User[2] == contrasena:
             print("ingreso existoso")
+            logeado.id = User[0]
+            logeado.nombre = User[1]
+            logeado.password = User[2]
+            logeado.rol = User[3]
+            logeado.restaurante = User[4]
             if User[3] == "usuario":
-                menus.menuUsuario(User[3],User[4])
+                menus.menuUsuario(logeado)
             elif User[3] == "administrador,":
                 menus.menuAdministrador()
             else:
-                print(User[4])
                 menus.menuAdministradorRestaurante(User[4])
             return False
         else:
