@@ -26,6 +26,7 @@ def menuUsuario (logeado):
             op6 = input("Quiere mostrar un plato y/n: ")
             if op6 == "y":
                 op5 = input("ingrese nombre del plato a ver: ")
+                print(platillos.obtenerID(op5))
                 funcionesComunes.mostrarPlatillo(logeado,platillos.obtenerID(op5))
             else:
                 menuUsuario(logeado)
@@ -44,19 +45,57 @@ def menuUsuario (logeado):
     else:
         login.cerrarSesion()
 
-def menuAdministradorRestaurante (restaurante):
+def menuAdministradorRestaurante (logeado):
     print("1.- Agregar Platillo")
     print("2.- Listar Platillos")
     print("3.- Listar Categorías De Platillos")
     print("4.- Cerrar Sesión")
     op = input("Ingrese su opción: ")
     if op == "1":
-        print("algo")
+        platillos.addPlatillo(platillos.generarKey())
+
     elif op == "2":
-        funcionesComunes.listarPlatillo(restaurante)
+        funcionesComunes.listarPlatillo(logeado.restaurante)
+        print("1.- Mostrar platillo")
+        print("2.- Actualizar platillo")
+        op1 = input("Ingrese una opción: ")
+        if op1 == "1":
+            op4 = input("ingrese nombre del plato a ver: ")
+            funcionesComunes.mostrarPlatillo(logeado, platillos.obtenerID(op4))
+        else:
+            op4 = input("ingrese nombre del plato a modificar: ")
+            platillos.modificarPlatillo(platillos.obtenerID(op4))
+            print(platillos.platillos)
 
     elif op == "3":
-        funcionesComunes.listarCategoria()
+        cat = platillos.listarCategorias()
+        for i in range(len(cat)):
+            print(i+1,".- ",cat[i])
+        catSelect = cat[int(input("Seleccione una categoria: "))]
+        print("1.- Mostrar platillos")
+        print("2.- Regresar")
+        op2 = input("Ingrese una opción: ")
+        if op2 == "1":
+            funcionesComunes.mastrarPlatillos(logeado,catSelect)
+            print("1.- Mostrar plato")
+            print("2.- Modificar plato")
+            print("3.- Regresar")
+            op3 = input("Ingrese su opción: ")
+            if op3 == "1":
+                op5 = input("ingrese nombre del plato a ver: ")
+                funcionesComunes.mostrarPlatillo(logeado,op5)
+            elif op3 == "2":
+                op5 = input("ingrese nombre del plato a modificar: ")
+                platillos.modificarPlatillo(platillos.obtenerID(op5))
+
+            elif op3 == "3":
+                print("regresando")
+            else:
+                print("Opción invalida")
+        elif op2 == "2":
+            print("Regresando")
+        else:
+            print("Opción invalida")
     else:
         login.cerrarSesion()
 

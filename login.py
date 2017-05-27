@@ -25,7 +25,7 @@ def InicioDeSesion ():
             elif User[3] == "administrador,":
                 menus.menuAdministrador()
             else:
-                menus.menuAdministradorRestaurante(User[4])
+                menus.menuAdministradorRestaurante(logeado)
             return False
         else:
             print("Contraseña Erronea")

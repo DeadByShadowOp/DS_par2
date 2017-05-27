@@ -33,13 +33,16 @@ def mastrarPlatillos(logeado,categoria):
     if  logeado.rol == "usuario":
         for j,k in platillos.platillos.items():
             if k[5] == categoria:
-                print(I, ".- ", k[1])
+                print(I, ".- ", k[1],"esta disponible: ",k[2]," es de tipo: ",k[3]," se encuentra en el restaurante: ",k[4])
                 listTmp.append(k[1])
                 I = I + 1
-    else:
+    elif logeado.rol == "adminRestaurante":
         for j,k in platillos.platillos.items():
             if (logeado.restaurante == k[4]):
-                print(k[4])
+                print(I, ".- ", k[1], "esta disponible: ", k[2], " es de tipo: ", k[3],
+                      " se encuentra en el restaurante: ", k[4])
+                listTmp.append(k[1])
+                I = I + 1
     return listTmp
 
 def mostrarPlatillo(logeado,id):
@@ -54,6 +57,16 @@ def mostrarPlatillo(logeado,id):
                 print("Los ingredientes son: ", k[6], "\n")
                 print("Imagenes: ", k[7], "\n")
                 print("Descripción: ", k[8], "\n")
+        elif logeado.rol == "adminRestaurante":
+            if (k[4] == logeado.restaurante) and (k[1] == id):
+                print("Su seleccion es: ", k[1])
+                print("Esta disponible: ", k[2])
+                print("Es de tipo: ", k[3])
+                print("Lo encuentra en el restaurante: ", k[4])
+                print("La categoria es: ", k[5])
+                print("Los ingredientes son: ", k[6])
+                print("Imagenes: ", k[7])
+                print("Descripción: ", k[8])
 
 
 
