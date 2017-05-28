@@ -52,7 +52,8 @@ def menuAdministradorRestaurante (logeado):
     print("4.- Cerrar Sesión")
     op = input("Ingrese su opción: ")
     if op == "1":
-        platillos.addPlatillo(platillos.generarKey())
+        platillos.addPlatillo(platillos.generarKey(),logeado.restaurante)
+        print(platillos.platillos)
 
     elif op == "2":
         funcionesComunes.listarPlatillo(logeado.restaurante)
