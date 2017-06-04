@@ -1,18 +1,19 @@
 import platillos
-import usuarios
 import  re
-import usuarioLogeado
+import asistenteClass
 diccionarioCategoria = dict()
-diccionarioCategoria = {}
+#diccionarioCategoria = {}
 keyC = []
 
 
 def listarCategoria():
-    tmp = dict()
+    """
+
+
+    :return:
+    """
     tmp = platillos.platillos
     key = platillos.key
-    lista = []
-    lista2 = []
     I = 1
     for i in range(len(key)):
         lista2 = tmp.get(key[i])
@@ -38,7 +39,7 @@ def mastrarPlatillos(logeado,categoria):
                 I = I + 1
     elif logeado.rol == "adminRestaurante":
         for j,k in platillos.platillos.items():
-            if (logeado.restaurante == k[4]):
+            if (logeado.rest.nombre == k[4]):
                 print(I, ".- ", k[1], "esta disponible: ", k[2], " es de tipo: ", k[3],
                       " se encuentra en el restaurante: ", k[4])
                 listTmp.append(k[1])
@@ -46,6 +47,7 @@ def mastrarPlatillos(logeado,categoria):
     return listTmp
 
 def mostrarPlatillo(logeado,id):
+    print(logeado.rol)
     for j, k in platillos.platillos.items():
         if logeado.rol == "usuario":
             if id == k[0]:
@@ -58,7 +60,8 @@ def mostrarPlatillo(logeado,id):
                 print("Imagenes: ", k[7], "\n")
                 print("Descripción: ", k[8], "\n")
         elif logeado.rol == "adminRestaurante":
-            if (k[4] == logeado.restaurante) and (k[1] == id):
+            print("ingreso if 1")
+            if (k[4] == logeado.rest.nombre) and (k[0] == id):
                 print("Su seleccion es: ", k[1])
                 print("Esta disponible: ", k[2])
                 print("Es de tipo: ", k[3])
@@ -81,10 +84,13 @@ def listarPlatillo(restaurante):
 
 
 def buscarPlato(nombre,pos):
+    bandera = 0
     op1 = ".*"+nombre+".*"
     for j,k in platillos.platillos.items():
         if re.search(op1, k[pos]):
+                bandera = 1
                 print("Nombre: ", k[1], "\n")
                 print("Servido: ", k[2], "\n")
                 print("Tipo: ", k[3], "\n")
                 print("Restaurante: ", k[4], "\n")
+    return bandera

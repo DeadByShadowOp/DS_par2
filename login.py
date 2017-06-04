@@ -1,13 +1,13 @@
 import usuarios
 import menus
-from contracts import contract
-import usuarioLogeado
-diccionarioUsuarios = dict()
-User = []
+#from contracts import contract
+import usuarioClass
+import  restauranteClass
+import asistenteClass
+import restaurant
 diccionarioUsuarios = usuarios.usuarios
-logeado = usuarioLogeado.userLogin()
-
-
+asistente = asistenteClass.asistente
+restaurant.iniciarRestaurantes()
 def InicioDeSesion ():
     usuario = input("ingrese su usuario: ")
     if usuario in diccionarioUsuarios:
@@ -15,17 +15,15 @@ def InicioDeSesion ():
         User = diccionarioUsuarios.get(usuario)
         if User[2] == contrasena:
             print("ingreso existoso")
-            logeado.id = User[0]
-            logeado.nombre = User[1]
-            logeado.password = User[2]
-            logeado.rol = User[3]
-            logeado.restaurante = User[4]
+            logeado = usuarioClass.userLogin(User[0],User[1],User[2],User[3])
             if User[3] == "usuario":
                 menus.menuUsuario(logeado)
             elif User[3] == "administrador,":
                 menus.menuAdministrador()
             else:
-                menus.menuAdministradorRestaurante(logeado)
+                restTmp = restaurant.objectRestaurantDic.get(User[0])
+                asistente = asistenteClass.asistente(logeado,restTmp)
+                menus.menuAdministradorRestaurante(asistente)
             return False
         else:
             print("Contraseña Erronea")

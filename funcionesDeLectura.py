@@ -1,8 +1,6 @@
 def leerArchivo(ruta,diccionario,key):
     archivoUsuarios = open(ruta, "r")
-    usuarios = dict()
     usuarios = diccionario
-    claves = []
     linea2 = []
     linea3 = []
     key1 = key
