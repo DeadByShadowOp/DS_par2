@@ -1,3 +1,4 @@
+# coding=utf-8
 import login
 print("Bienvenidos a restaurantes Espol \n")
 bucle = True

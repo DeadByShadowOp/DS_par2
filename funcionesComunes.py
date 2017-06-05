@@ -1,3 +1,4 @@
+# coding=utf-8
 import platillos
 import usuarios
 import  re
