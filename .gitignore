@@ -1,2 +1,8 @@
 .idea
 __pycache__
+.idea
+DS
+*.pyc
+\.vscode/
+
+DS_PAR2/
