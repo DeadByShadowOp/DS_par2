@@ -1,9 +1,14 @@
-import funcionesDeLectura
+from modelado import funcionesDeLectura
+from modelado import categoriaClass
+
 platillos = dict()
 platillos = {}
 key = []
+listCategoria = categoriaClass.categoria("0","fantasma")
+listCategoria.cargarCategorias()
+
 estructura = ["ID","NOMBRE","SERVIDO","TIPO","RESTAURANT","CATEGORIA","INGREDIENTES","IMAGENES","DESCRIPCION"]
-funcionesDeLectura.leerArchivo("platillos.txt",platillos,key)
+funcionesDeLectura.leerArchivo("dataAccess/platillos.txt", platillos, key)
 
 def obtenerID(nombre):
     for j,k in platillos.items():
@@ -48,6 +53,18 @@ def tipo():
         else:
             print("Opción erronea vuelva a intentarlo")
 
+def seleccionCategoria():
+    bandera = True
+    while bandera:
+        listCategoria.mostrarCategorias()
+        op = input("Seleccione una categoria: ")
+        if listCategoria.hashExiste(op) == True:
+            objTmp = listCategoria.getCategoria(op)
+            bandera = False
+        else:
+            print("Categoria no existe")
+    return objTmp.nombre
+
 def addPlatillo(key,restaurante):
     #version 2.0
     tmp =[]
@@ -56,7 +73,7 @@ def addPlatillo(key,restaurante):
     tmp.append(servido())
     tmp.append(tipo())
     tmp.append(restaurante)
-    tmp.append(input("Ingrese la categoria: "))
+    tmp.append(seleccionCategoria())
     tmp.append(input("Ingrese los ingredientes del plato: "))
     tmp.append(input("Ingrese las imagenes del plato: "))
     tmp.append(input("Ingrese la descripción del plato: "))
@@ -93,9 +110,9 @@ def modNombre(parametro):
         return parametro
 
 def modCategoria(parametro):
-    op = input("Ingrese la nueva categoría del plato, o deje blanco para mantener el mismo: ")
+    op = input("Escriba Y para modificar la categoria o deje blanco para mantener el mismo: ")
     if op != "":
-        return op
+        return seleccionCategoria()
     else:
         return parametro
 

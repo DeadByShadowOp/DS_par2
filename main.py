@@ -1,4 +1,5 @@
-import login
+from control import login
+
 print("Bienvenidos a restaurantes Espol \n")
 bucle = True
 usuario = []

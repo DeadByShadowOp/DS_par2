@@ -1,5 +1,8 @@
-import usuarioClass
-import restauranteClass
+from modelado import restauranteClass
+
+from modelado import usuarioClass
+
+
 class asistente(usuarioClass.userLogin):
     rest = restauranteClass.restaurante
     user = usuarioClass.userLogin
