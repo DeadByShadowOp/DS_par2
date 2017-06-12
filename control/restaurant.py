@@ -1,4 +1,5 @@
-from modelado import restauranteClass, funcionesDeLectura, platillos
+from control import platillos
+from modelado import restauranteClass, funcionesDeLectura
 
 restauranteDic = {}
 objectRestaurantDic = {}

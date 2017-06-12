@@ -1,5 +1,5 @@
-from control import login, funcionesComunes
-from modelado import restaurant, platillos,usuarioClass
+from control import login, funcionesComunes, platillos, restaurant
+from modelado import usuarioClass
 
 
 def menuUsuario (logeado):

@@ -1,9 +1,7 @@
-import re
-
-from modelado import platillos
-
-#diccionarioCategoria = dict()
-#keyC = []
+diccionarioCategoria = dict()
+#diccionarioCategoria = {}
+keyC = []
+from control import platillos
 
 def mastrarPlatillos(logeado,categoria):
     I = 1

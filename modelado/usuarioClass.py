@@ -1,5 +1,7 @@
-from modelado import platillos
 import re
+
+from control import platillos
+
 diccionarioCategoria = dict()
 keyC = []
 keyCSinRepeticiones = []

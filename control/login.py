@@ -1,5 +1,6 @@
-from modelado import asistenteClass, restaurant
-from modelado import usuarioClass, usuarios
+from control import usuarios, restaurant
+from modelado import asistenteClass
+from modelado import usuarioClass
 from vista import menus
 
 diccionarioUsuarios = usuarios.usuarios
