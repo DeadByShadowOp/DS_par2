@@ -21,15 +21,12 @@ def saludar():
 
 def main_view():
     showPrettyTitle("Restaurantes ESPOL")
-    print(FeikDatabase.FeikDatabase.data['users'])
     menu = "01. Saludar\n"
     acciones = {
         0: saludar
     }
     opt = choiceInput(menu, 1)
     if opt:
-        print(int(opt)-1)
-        print(acciones[0])
         acciones[int(opt)-1]()
     else:
         return False

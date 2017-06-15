@@ -1,10 +1,13 @@
-from utils import loadFileAsDict, choiceInput
+from utils import loadFileAsDict, choiceInput, yesNoInput
 from models import Usuario
+from functools import wraps
+import views
+from FeikDatabase import FeikDatabase
 
 
 def getCurrentUser():
     user = loadFileAsDict("activeuser")
-    if name in user:
+    if user and name in user:
         return user
     else:
         return None
@@ -16,14 +19,21 @@ def isAuthenticated():
 
 # Decorador de vista que requiere autenticacion
 def require_login(view):
-    def wrapper():
+    @wraps(view)
+    def wrapper(*args, **kwds):
         if not isAuthenticated():
             print("Debes iniciar sesion primero")
-            if choiceInput("Deseas iniciar sesión? Y/n", ['y', 'Y', 'n', 'N']):
-                return 6
+            if yesNoInput("Deseas iniciar sesión?"):
+                views.login_view()
         else:
-            view()
+            view(*args, **kwds)
+    return wrapper
 
 
 def authenticate(user, psw):
-    return Usuario(0, user, psw)
+    if user in FeikDatabase.data["usuarios"]:
+        usuario = Usuario(FeikDatabase.data["usuarios"][user][0],
+                          FeikDatabase.data["usuarios"][user][1],
+                          FeikDatabase.data["usuarios"][user][2])
+        return usuario
+    return None

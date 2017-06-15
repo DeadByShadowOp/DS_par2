@@ -1,14 +1,36 @@
+from pathlib import Path
+import os
+
+
 def choiceInput(message, choices):
     print(message)
     print("ingresa 'q' para salir")
     choices = ["{:02d}".format(x) for x in range(1, choices + 1)]
-    print(choices)
     opt = ""
     while opt not in choices and opt != 'q':
         opt = input(">")
+        if opt in choices or opt == 'q':
+            break
+        print("opción no válida, ingresa una opción o 'q' para salir.")
     if opt == 'q':
         return False
     return opt
+
+
+def yesNoInput(message):
+    print(message + "Y/n")
+    print("ingresq 'q' para salir")
+    choices = ['y', 'Y', 'n', 'N', '']
+    opt = None
+    while opt not in choices and opt != 'q':
+        opt = input(">")
+        if opt in choices or opt == 'q':
+            break
+        print("opción no válida, ingresa una opción o 'q' para salir.")
+    if opt == 'q':
+        return False
+    return True
+
 
 def freeTextInput(message):
     print(message)
@@ -16,7 +38,11 @@ def freeTextInput(message):
 
 
 def loadFileAsDict(ruta):
-    archivo = open(ruta, "r")
+    archivo = Path(ruta)
+    if not archivo.is_file():
+        return False
+    archivo = open(ruta, "r") or None
+
     usuarios = {}
     linea2 = []
     linea3 = []
@@ -41,4 +67,8 @@ def loadFileAsDict(ruta):
 
 
 def showPrettyTitle(title):
+    os.system('cls')
+    print("#"*(len(title)+14))
     print("###### " + title + " ######")
+    print("#"*(len(title)+14))
+    
