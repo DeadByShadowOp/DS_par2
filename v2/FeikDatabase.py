@@ -2,7 +2,7 @@ from utils import loadFileAsDict
 
 
 class FeikDatabase():
-    data = {'usuarios': '', 'restaurantes': '', 'platillos': '', 'categorias': ''}
+    data = {'usuarios': {}, 'restaurantes': {}, 'platillos': {}, 'categorias': {}}
 
     def __init__(self):
         FeikDatabase.data["usuarios"] = loadFileAsDict("dataAccess/usuarios.txt")
