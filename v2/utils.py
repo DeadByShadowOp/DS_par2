@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+from shutil import copyfile
+from PIL import Image
 
 
 def choiceInput(message, choices):
@@ -15,6 +17,17 @@ def choiceInput(message, choices):
     if opt == 'q':
         return False
     return opt
+
+
+def add_file(ruta, carpeta, nombre):
+    ruta_base = "media/"
+    dst = ruta_base + carpeta + "/" + nombre
+    copyfile(ruta, dst)
+
+
+def mostrar_imagen(ruta):
+    img = Image.open(ruta)
+    img.show()
 
 
 def yesNoInput(message):
@@ -42,14 +55,34 @@ def loadFileAsDict(ruta):
     if not archivo.is_file():
         return False
     archivo = open(ruta, "r") or None
+    datos = []
+    claves = archivo.readline().split(",")
+    print("claves...")
+    print(claves)
+    linea = archivo.readline()
+    while linea != "":
+        partes = linea.split(",")
+        dato = {}
+        for i, clave in enumerate(claves):
+            dato[clave] = partes[i]
+        print(dato)
+        datos.append(dato)
+        linea = archivo.readline()
+    print("datos finales")
+    print(datos)
+    input("datos")
+    return datos
 
+
+'''
     usuarios = {}
+
     linea2 = []
     linea3 = []
     key1 = []
     linea = archivo.readline()
     while linea != "":
-        # creacion de una lista con valores de la linea
+            # creacion de una lista con valores de la linea
         claves = linea.split(",")
         # creacion de lista con los valores de CI o Id para usar como key
         key1.append(claves[0])
@@ -64,11 +97,11 @@ def loadFileAsDict(ruta):
     for i, elem in enumerate(linea3):
         usuarios.setdefault(key1[i], elem)
     return usuarios, key1
+'''
 
 
 def showPrettyTitle(title):
     os.system('cls')
-    print("#"*(len(title)+14))
+    print("#" * (len(title) + 14))
     print("###### " + title + " ######")
-    print("#"*(len(title)+14))
-    
+    print("#" * (len(title) + 14))
