@@ -30,8 +30,9 @@ def categorias_view():
     input("asd")
 
 
-def ingresarimagen_view():
+def ingresarimagen_view(nombre):
     ruta = freeTextInput("Ingrese la ruta de la imagen")
+    add_file(ruta, "platillos", nombre)
 
 
 def mostrarimagen_view(imagenes):
