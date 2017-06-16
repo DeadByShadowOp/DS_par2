@@ -2,7 +2,7 @@ from control import login, funcionesComunes, platillos, restaurant
 from modelado import usuarioClass
 
 
-def menuUsuario (logeado):
+def menuUsuario(logeado):
     bandera = True
     while bandera:
         print("1.- Listar Categorías De Platos")
@@ -17,7 +17,8 @@ def menuUsuario (logeado):
             lista1 = funcionesComunes.mastrarPlatillos(logeado, categoria)
             op3 = int(input("Seleccione un plato: "))
             if op3 <= len(lista1):
-                funcionesComunes.mostrarPlatillo(logeado, platillos.obtenerID(lista1[op3 - 1]))
+                funcionesComunes.mostrarPlatillo(
+                    logeado, platillos.obtenerID(lista1[op3 - 1]))
             else:
                 print("Platillo no existe")
             funcionesComunes.pausa()
@@ -28,7 +29,7 @@ def menuUsuario (logeado):
             op2 = input("ingrese su opción: ")
             if op2 == "1":
                 op4 = input("Ingrese el nombre del plato: ")
-                bTmp=usuarioClass.buscarPlato(op4, 1)
+                bTmp = usuarioClass.buscarPlato(op4, 1)
                 if bTmp == 0:
                     print("el plato no existe")
                     menuUsuario(logeado)
@@ -36,7 +37,8 @@ def menuUsuario (logeado):
                     op6 = input("Quiere mostrar un plato y/n: ")
                     if op6 == "y":
                         op5 = input("ingrese nombre del plato a ver: ")
-                        funcionesComunes.mostrarPlatillo(logeado, platillos.obtenerID(op5))
+                        funcionesComunes.mostrarPlatillo(
+                            logeado, platillos.obtenerID(op5))
                     else:
                         menuUsuario(logeado)
             elif op2 == "2":
@@ -49,7 +51,8 @@ def menuUsuario (logeado):
                     op6 = input("Quiere mostrar un plato y/n: ")
                     if op6 == "y":
                         op5 = input("ingrese nombre del plato a ver: ")
-                        funcionesComunes.mostrarPlatillo(logeado, platillos.obtenerID(op5))
+                        funcionesComunes.mostrarPlatillo(
+                            logeado, platillos.obtenerID(op5))
                     else:
                         menuUsuario(logeado)
             else:
@@ -59,7 +62,8 @@ def menuUsuario (logeado):
             #bandera = False
             login.cerrarSesion()
 
-def menuAdministradorRestaurante (asistente):
+
+def menuAdministradorRestaurante(asistente):
     banderaP = True
     while banderaP:
         print(asistente.rol)
@@ -69,7 +73,8 @@ def menuAdministradorRestaurante (asistente):
         print("4.- Cerrar Sesión")
         op = input("Ingrese su opción: ")
         if op == "1":
-            platillos.addPlatillo(platillos.generarKey(), asistente.rest.nombre)
+            platillos.addPlatillo(platillos.generarKey(),
+                                  asistente.rest.nombre)
             funcionesComunes.pausa()
         elif op == "2":
             restaurant.iniciarRestaurantes()
@@ -79,29 +84,30 @@ def menuAdministradorRestaurante (asistente):
             op1 = input("Ingrese una opción: ")
             if op1 == "1":
                 op4 = input("ingrese nombre del plato a ver: ")
-                funcionesComunes.mostrarPlatillo(asistente, platillos.obtenerID(op4))
+                funcionesComunes.mostrarPlatillo(
+                    asistente, platillos.obtenerID(op4))
             else:
                 op4 = input("ingrese nombre del plato a modificar: ")
                 platillos.modificarPlatillo(platillos.obtenerID(op4))
-                #aqui funcion que muestre el plato add
+                # aqui funcion que muestre el plato add
             funcionesComunes.pausa()
 
         elif op == "3":
             cat = platillos.listarCategorias()
             for i in range(len(cat)):
-                print(i+1,".- ",cat[i])
+                print(i + 1, ".- ", cat[i])
             bandera = True
             while bandera:
                 opc = int(input("Seleccione una categoria: "))
-                if (opc-1) < len(cat):
+                if (opc - 1) < len(cat):
                     bandera = False
-                    catSelect = cat[opc -1]
+                    catSelect = cat[opc - 1]
             print("1.- Mostrar platillos")
             print("2.- Regresar")
             op2 = input("Ingrese una opción: ")
             if op2 == "1":
                 lista = funcionesComunes.mastrarPlatillos(asistente, catSelect)
-                if len(lista)>0:
+                if len(lista) > 0:
                     banderaI = True
                     while banderaI:
                         print("1.- Mostrar plato")
@@ -110,16 +116,19 @@ def menuAdministradorRestaurante (asistente):
                         op3 = input("Ingrese su opción: ")
                         if op3 == "1":
                             op5 = input("ingrese nombre del plato a ver: ")
-                            funcionesComunes.mostrarPlatillo(asistente, platillos.obtenerID(op5))
+                            funcionesComunes.mostrarPlatillo(
+                                asistente, platillos.obtenerID(op5))
                             banderaI = False
                         elif op3 == "2":
-                            op5 = input("ingrese nombre del plato a modificar: ")
-                            platillos.modificarPlatillo(platillos.obtenerID(op5))
+                            op5 = input(
+                                "ingrese nombre del plato a modificar: ")
+                            platillos.modificarPlatillo(
+                                platillos.obtenerID(op5))
                             banderaI = False
                         elif op3 == "3":
                             print("regresando......")
                             banderaI = False
-                            #menuAdministradorRestaurante(asistente)
+                            # menuAdministradorRestaurante(asistente)
                         else:
                             print("Opción invalida")
                 else:
@@ -134,7 +143,8 @@ def menuAdministradorRestaurante (asistente):
         else:
             login.cerrarSesion()
 
-def menuAdministrador ():
+
+def menuAdministrador():
     print("1.- Agregar Restaurante")
     print("2.- Listar Restaurantes")
     print("3.- Agregar Usuario")
@@ -154,4 +164,3 @@ def menuAdministrador ():
         print("algo")
     else:
         login.cerrarSesion()
-
