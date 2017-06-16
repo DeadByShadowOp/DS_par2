@@ -1,4 +1,4 @@
-from utils import showPrettyTitle, freeTextInput, choiceInput
+from utils import showPrettyTitle, add_file, freeTextInput, choiceInput, mostrar_imagen
 import Auth
 import FeikDatabase
 from controllers import buscarPlatilloPorNombre, buscarPlatilloPorDescripcion
@@ -28,6 +28,15 @@ def categorias_view():
     for categorias in FeikDatabase.FeikDatabase.data["categorias"]:
         print(categorias)
     input("asd")
+
+
+def ingresarimagen_view():
+    ruta = freeTextInput("Ingrese la ruta de la imagen")
+
+
+def mostrarimagen_view(imagenes):
+    for imagen in imagenes:
+        mostrar_imagen(imagen)
 
 
 def buscarPorNombre_view():
