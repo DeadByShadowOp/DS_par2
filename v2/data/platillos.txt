@@ -1,0 +1,8 @@
+id,nombre,disponible,tipo,restaurante,categoria,ingredientes,imagenes,descripcion
+1,plato 1,si ,postre,coca cola,postre,1 2 3 4 5, 1 2 3 4 5, asdcvbgfdsaasdfgfdsasdf
+2,plato 2,si ,entrada,celex,almuerzo,1 2 3 4 5, 1 2 3 4 5, asdcvbgfdsaasdfgfdsasdf
+3,plato 3,no, ejecutivo,fen,a la carta,1 2 3 4 5, 1 2 3 4 5, asdcvbgfdsaasdfgfdsasdf
+4,plato 22,si ,entrada,celex,almuerzo,1 2 3 4 5, 1 2 3 4 5, asdcvbgfdsaasdfgfdsasdf
+5,plato 3,no, ejecutivo,fen,a la carta,1 2 3 4 5, 1 2 3 4 5, asdcvbgfdsaasdfgfdsasdf
+6,plato 1,si ,postre,coca cola,postre,1 2 3 4 5, 1 2 3 4 5, asdcvbgfdsaasdfgfdsasdf
+7,plato 2222,si ,entrada,celex,almuerzo,1 2 3 4 5, 1 2 3 4 5, asdcvbgfdsaasdfgfdsasdf

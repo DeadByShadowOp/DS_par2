@@ -1,0 +1,8 @@
+id,nombre
+1,Platos Tipicos
+2,Platos Del Mar
+3,Postres
+4,Comida Espa�ola
+5,Comida japonesa
+6,piqueos
+7,Vegetarianos
