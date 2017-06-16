@@ -1,5 +1,5 @@
 from control import login, funcionesComunes, platillos, restaurant
-from modelado import usuarioClass
+from modelado import usuarioClass, adminClass
 
 
 def menuUsuario(logeado):
@@ -144,23 +144,26 @@ def menuAdministradorRestaurante(asistente):
             login.cerrarSesion()
 
 
-def menuAdministrador():
+def menuAdministrador(logeado):
     print("1.- Agregar Restaurante")
     print("2.- Listar Restaurantes")
     print("3.- Agregar Usuario")
     print("4.- Cerrar Sesión")
     op = input("Ingrese su opción: ")
     if op == "1":
-        print("algo")
+        print("En construcción")
     elif op == "2":
         print("1.- Listar Platillos")
         print("2.- Listar Categorías")
         op2 = input("Ingrese su opción: ")
-        if op == "1":
+        if op2 == "1":
             print("algo")
-        else:
+        elif  op2 == "2":
             funcionesComunes.listarCategoria()
+        else:
+            print("Opción invalida")
     elif op == "3":
-        print("algo")
+        logeado.addUser()
+
     else:
         login.cerrarSesion()

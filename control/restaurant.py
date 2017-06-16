@@ -1,9 +1,24 @@
-from control import platillos
-from modelado import restauranteClass, funcionesDeLectura
+from control import platillos, funcionesDeLectura
+from modelado import restauranteClass
 
 restauranteDic = {}
 objectRestaurantDic = {}
 key = []
+listName = []
+lisNumb = []
+
+
+def listarNombre():
+    a = 0
+    for i,I in restauranteDic.items():
+        a = a+1
+        listName.append(I[1])
+        lisNumb.append(a)
+
+def mostrarListas():
+    listarNombre()
+    for i in range(len(lisNumb)):
+        print(str(lisNumb[i]) + ".- " +listName[i])
 
 def listarPlatillo(restaurante):
     for j, k in platillos.platillos.items():
@@ -21,3 +36,5 @@ def iniciarRestaurantes():
         objectRestaurantDic.setdefault(key[i], restauranteClass.restaurante(listTmp[0], listTmp[1], listTmp[2],
                                                                             listTmp[3], listTmp[4], listTmp[5]))
 
+def addRestaurant(id):
+    mostrarListas()

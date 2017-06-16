@@ -1,6 +1,6 @@
 from control import usuarios, restaurant
 from modelado import asistenteClass
-from modelado import usuarioClass
+from modelado import usuarioClass, adminClass
 from vista import menus
 
 diccionarioUsuarios = usuarios.usuarios
@@ -16,8 +16,9 @@ def InicioDeSesion ():
             logeado = usuarioClass.userLogin(User[0], User[1], User[2], User[3])
             if User[3] == "usuario":
                 menus.menuUsuario(logeado)
-            elif User[3] == "administrador,":
-                menus.menuAdministrador()
+            elif User[3] == "administrador":
+                logeado2 = adminClass.userAdmin(User[0], User[1], User[2], User[3])
+                menus.menuAdministrador(logeado2)
             else:
                 restTmp = restaurant.objectRestaurantDic.get(User[0])
                 asistente = asistenteClass.asistente(logeado, restTmp)

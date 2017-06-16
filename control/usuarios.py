@@ -1,4 +1,4 @@
-from modelado import funcionesDeLectura
+from control import funcionesDeLectura
 
 usuarios = {}
 key = []

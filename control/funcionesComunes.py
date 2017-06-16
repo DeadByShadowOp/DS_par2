@@ -12,7 +12,7 @@ def mastrarPlatillos(logeado, categoria):
     if logeado.rol == "usuario":
         for j, k in platillos.platillos.items():
             if k[5] == categoria:
-                print(I, ".- ", k[1], "esta disponible: ", k[2], " es de tipo: ",
+                print(I, ".- ", k[1], "su servido es: ", k[2], " es de tipo: ",
                       k[3], " se encuentra en el restaurante: ", k[4])
                 listTmp.append(k[1])
                 I = I + 1

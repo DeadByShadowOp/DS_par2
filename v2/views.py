@@ -1,6 +1,7 @@
 from v2.utils import showPrettyTitle, add_file, freeTextInput, choiceInput, mostrar_imagen
 import v2.Auth
 import v2.FeikDatabase
+import image
 #from controllers import buscarPlatilloPorNombre, buscarPlatilloPorDescripcion
 
 
@@ -36,8 +37,7 @@ def ingresarimagen_view(nombre):
 
 
 def mostrarimagen_view(imagenes):
-    for imagen in imagenes:
-        mostrar_imagen(imagen)
+    mostrar_imagen(imagenes)
 
 
 def buscarPorNombre_view():

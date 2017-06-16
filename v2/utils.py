@@ -26,7 +26,8 @@ def add_file(ruta, carpeta, nombre):
 
 
 def mostrar_imagen(ruta):
-    img = Image.open(ruta)
+    #img = Image.open(ruta,"r")
+    img = Image.open(ruta,"r")
     img.show()
 
 
