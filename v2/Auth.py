@@ -1,8 +1,8 @@
-from utils import loadFileAsDict, choiceInput, yesNoInput
-from models import Usuario
+from v2.utils import loadFileAsDict, choiceInput, yesNoInput
+from v2.models import Usuario
 from functools import wraps
-import views
-from FeikDatabase import FeikDatabase
+import v2.views
+from v2.FeikDatabase import FeikDatabase
 
 
 def getCurrentUser():

@@ -1,7 +1,7 @@
-from utils import showPrettyTitle, add_file, freeTextInput, choiceInput, mostrar_imagen
-import Auth
-import FeikDatabase
-from controllers import buscarPlatilloPorNombre, buscarPlatilloPorDescripcion
+from v2.utils import showPrettyTitle, add_file, freeTextInput, choiceInput, mostrar_imagen
+import v2.Auth
+import v2.FeikDatabase
+#from controllers import buscarPlatilloPorNombre, buscarPlatilloPorDescripcion
 
 
 def login_view():
@@ -18,7 +18,7 @@ def login_view():
     return user
 
 
-@Auth.require_login
+@v2.Auth.require_login
 def admin_view():
     print("hola")
 

@@ -1,4 +1,4 @@
-from utils import loadFileAsDict
+from v2.utils import loadFileAsDict
 
 
 class FeikDatabase():
