@@ -1,19 +1,23 @@
+from v2.utils import yesNoInput
+from v2.views import mostrarimagen_view, ingresarimagen_view
 diccionarioCategoria = dict()
 #diccionarioCategoria = {}
 keyC = []
 from control import platillos
 
-def mastrarPlatillos(logeado,categoria):
+
+def mastrarPlatillos(logeado, categoria):
     I = 1
     listTmp = []
-    if  logeado.rol == "usuario":
-        for j,k in platillos.platillos.items():
+    if logeado.rol == "usuario":
+        for j, k in platillos.platillos.items():
             if k[5] == categoria:
-                print(I, ".- ", k[1],"esta disponible: ",k[2]," es de tipo: ",k[3]," se encuentra en el restaurante: ",k[4])
+                print(I, ".- ", k[1], "esta disponible: ", k[2], " es de tipo: ",
+                      k[3], " se encuentra en el restaurante: ", k[4])
                 listTmp.append(k[1])
                 I = I + 1
     elif logeado.user.rol == "adminRestaurante":
-        for j,k in platillos.platillos.items():
+        for j, k in platillos.platillos.items():
             if (logeado.rest.nombre == k[4]) and (k[5] == categoria):
                 print(I, ".- ", k[1], "esta disponible: ", k[2], " es de tipo: ", k[3],
                       " se encuentra en el restaurante: ", k[4])
@@ -21,7 +25,8 @@ def mastrarPlatillos(logeado,categoria):
                 I = I + 1
     return listTmp
 
-def mostrarPlatillo(logeado,id):
+
+def mostrarPlatillo(logeado, id):
     print(logeado.rol)
     for j, k in platillos.platillos.items():
         if logeado.rol == "usuario":
@@ -34,6 +39,8 @@ def mostrarPlatillo(logeado,id):
                 print("Los ingredientes son: ", k[6], "\n")
                 print("Imagenes: ", k[7], "\n")
                 print("Descripción: ", k[8], "\n")
+                if yesNoInput("Desea ver las imágenes del platillo?"):
+                    mostrarimagen_view(k[7])
         elif logeado.user.rol == "adminRestaurante":
             if (k[4] == logeado.rest.nombre) and (k[0] == id):
                 print("Su seleccion es: ", k[1])
@@ -44,6 +51,11 @@ def mostrarPlatillo(logeado,id):
                 print("Los ingredientes son: ", k[6])
                 print("Imagenes: ", k[7])
                 print("Descripción: ", k[8])
+                if yesNoInput("Desea ver las imágenes del platillo?"):
+                    mostrarimagen_view(k[7])
+                if yesNoInput("Desea agregar imagenes al platillo"):
+                    ingresarimagen_view(k[0])
+
 
 def pausa():
     pause = input("Pulse ENTER para continual")
