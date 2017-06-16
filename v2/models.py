@@ -10,6 +10,9 @@ class Categoria:
         self.identificador = identificador
         self.nombre = nombre
 
+    def __str__(self):
+        return self.nombre
+
 
 class Restaurante:
     def __init__(self, asistente, nombre, direccion, telefono, duenio, platillos):
@@ -19,7 +22,8 @@ class Restaurante:
         self.telefono = telefono
         self.duenio = duenio
         self.platillos = platillos
-
+    def __str__(self):
+        return self.nombre
 
 class Asistente(Usuario):
     def __init__(self, identificador, nombre, password, restaurante):
@@ -37,3 +41,6 @@ class Platillo:
         self.ingredientes = ingredientes
         self.imagenes = imagenes
         self.descripcion = descripcion
+
+    def __str__(self):
+        return "Nombre: " + self.nombre + "\nDescripción: " + self.descripcion + "\nCategoria: " + self.categoria + "\nTipo: " + self.tipo
