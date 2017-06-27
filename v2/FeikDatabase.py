@@ -5,10 +5,10 @@ class FeikDatabase():
     data = {'usuarios': {}, 'restaurantes': {}, 'platillos': {}, 'categorias': {}}
 
     def __init__(self):
-        FeikDatabase.data["usuarios"] = loadFileAsDict("dataAccess/usuarios.txt")
+        FeikDatabase.data["usuarios"] = loadFileAsDict("dataAccess/usuarios.csv")
         FeikDatabase.data["restaurantes"] = loadFileAsDict(
-            "dataAccess/restaurante.txt")
+            "dataAccess/restaurante.csv")
         FeikDatabase.data["platillos"] = loadFileAsDict(
-            "dataAccess/platillos.txt")
+            "dataAccess/platillos.csv")
         FeikDatabase.data["categorias"] = loadFileAsDict(
-            "dataAccess/categorias.txt")
+            "dataAccess/categorias.csv")

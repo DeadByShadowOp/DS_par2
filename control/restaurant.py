@@ -30,7 +30,7 @@ def listarPlatillo(restaurante):
             print("\n \n <--------------------------> \n\n")
 
 def iniciarRestaurantes():
-    funcionesDeLectura.leerArchivo("dataAccess/restaurante.txt", restauranteDic, key)
+    funcionesDeLectura.leerArchivo("dataAccess/restaurante.csv", restauranteDic, key)
     for i in range(len(key)):
         listTmp = restauranteDic.get(key[i])
         objectRestaurantDic.setdefault(key[i], restauranteClass.restaurante(listTmp[0], listTmp[1], listTmp[2],

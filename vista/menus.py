@@ -157,7 +157,8 @@ def menuAdministrador(logeado):
         print("2.- Listar Categorías")
         op2 = input("Ingrese su opción: ")
         if op2 == "1":
-            print("algo")
+            #funcionesComunes.mastrarPlatillos(logeado,"")
+            print("en cons")
         elif  op2 == "2":
             funcionesComunes.listarCategoria()
         else:

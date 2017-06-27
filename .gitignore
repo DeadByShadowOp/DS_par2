@@ -8,3 +8,5 @@ urls.txt
 DS_PAR2
 *.pyc
 *.zip
+
+env/

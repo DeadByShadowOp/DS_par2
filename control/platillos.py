@@ -8,7 +8,7 @@ listCategoria = categoriaClass.categoria("0","fantasma")
 listCategoria.cargarCategorias()
 
 estructura = ["ID","NOMBRE","SERVIDO","TIPO","RESTAURANT","CATEGORIA","INGREDIENTES","IMAGENES","DESCRIPCION"]
-funcionesDeLectura.leerArchivo("dataAccess/platillos.txt", platillos, key)
+funcionesDeLectura.leerArchivo("dataAccess/platillos.csv", platillos, key)
 
 def obtenerID(nombre):
     for j,k in platillos.items():

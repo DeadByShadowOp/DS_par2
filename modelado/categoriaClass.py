@@ -15,7 +15,7 @@ class categoria():
         return len(key)
 
     def cargarCategorias(self):
-        funcionesDeLectura.leerArchivo("dataAccess/categorias.txt", DicCategoria, key)
+        funcionesDeLectura.leerArchivo("dataAccess/categorias.csv", DicCategoria, key)
         for i in range(len(key)):
             listTmp = DicCategoria.get(key[i])
             DicObjectCategoria.setdefault(key[i],categoria(listTmp[0],listTmp[1]))
