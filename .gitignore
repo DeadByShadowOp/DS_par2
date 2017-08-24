@@ -1,12 +1,3 @@
-.idea/*
-__pycache__
-no va/*
-test.py
-urls.txt
-.vscode
-*.__pycache__
-DS_PAR2
-*.pyc
-*.zip
-
 env/
+__pycache__
+\.vscode/

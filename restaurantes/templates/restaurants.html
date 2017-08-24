@@ -1,0 +1,27 @@
+{% extends "root.html" %} {% block title %} Restaurantes {% endblock title %} {% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for restaurant in restaurants %} {% with "/restaurantes/"|add:restaurant.name|add:"/" as restname %}
+
+    <tr>
+      <td>{{ restaurant.name }}</td>
+      <td><a href="{% url 'restaurant_detail' restaurant=restaurant.name %}">ver</a></td>
+    </tr>
+
+    {% endwith %} {% empty %}
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+    </tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+{% endblock content %}

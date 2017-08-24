@@ -1,0 +1,32 @@
+{% extends "root.html" %} {% load app_filters %} {% block title %}{{ restaurant.name }}{% endblock %} {% block content %}
+<p>Restaurante {{ restaurant.name }}</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sopa</th>
+      <th>Segundo</th>
+      <th>Extras</th>
+      <th>Precio</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for plate in plates %}
+
+    <tr>
+      <td>{{ plate.sopa }}</td>
+      <td>{{ plate.segundo }}</td>
+      <td>{{ plate|get_extras }}</td>
+      <td>{{ plate|get_total_price }}</td>
+      <td><a href="{% url 'buy' plate_id=plate.id %}">comprar</a></td>
+    </tr> {% empty %}
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+    </tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+{% endblock content %}
